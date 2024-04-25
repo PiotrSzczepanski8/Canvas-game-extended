@@ -4,11 +4,27 @@ canvas.width = 1200;
 canvas.height = 600;
 canvas.primeWidth = window.innerWidth - 50;
 canvas.primeHeight = window.innerHeight - 50;
+settings_updated = false;
+
+const tank_colors = ['green', 'blue', 'yellow']
+const settings_submit = document.querySelector('.preferencesSubmit');
+
+settings_submit.addEventListener("click", function(){
+    settings_updated = true;
+});
+
+let settings = {
+    tank_color: 'green',
+    tank_model: 'default'
+}
 
 let rightCanvaswidth;
 let rightCanvasheight;
 
+const container = document.querySelector(".container");
+
 function appendCanvas(){
+    container.style.display = 'none';
     rightCanvaswidth = window.innerWidth - 50;
     rightCanvasheight = window.innerHeight - 50;
     canvas.width = rightCanvaswidth;
@@ -162,7 +178,7 @@ function fullscreenCheck(){
     }else{
         animationId = requestAnimationFrame(update);
     }
-    if(!canvasExist && fullscreenNow){
+    if(!canvasExist && fullscreenNow && settings_updated == true){
         appendCanvas();
         canvasExist = true;
     }
@@ -200,9 +216,10 @@ function update() {
     drawAim();
     drawBullet();
     drawPlayerHealthBar();
-    ctx.fillStyle = '#f00';
-    ctx.font = 'bold 20px Calibri';
-    ctx.fillText(`POINTS: ${points}`, 5, 20);
+    ctx.fillStyle = '#212121';
+    ctx.letterSpacing = '5px';
+    ctx.font = '50px freshman';
+    ctx.fillText(`POINTS: ${points}`, 575, 50);
 }
 }
 
