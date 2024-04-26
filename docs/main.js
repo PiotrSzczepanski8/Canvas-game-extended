@@ -24,7 +24,7 @@ let rightCanvasheight;
 const container = document.querySelector(".container");
 
 function appendCanvas(){
-    container.style.display = 'none';
+    container.remove();
     rightCanvaswidth = window.innerWidth - 50;
     rightCanvasheight = window.innerHeight - 50;
     canvas.width = rightCanvaswidth;
