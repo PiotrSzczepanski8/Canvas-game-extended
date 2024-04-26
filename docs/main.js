@@ -22,6 +22,21 @@ let rightCanvaswidth;
 let rightCanvasheight;
 
 const container = document.querySelector(".container");
+const change_color = document.querySelector('#color_change');
+const color_display = document.querySelector('#color_value');
+
+function changeColor(){
+    let color_id = tank_colors.indexOf(settings.tank_color);
+    if(color_id < tank_colors.length-1){
+        settings.tank_color = tank_colors[color_id + 1];
+    }else{
+        settings.tank_color = tank_colors[0];
+    } 
+    color_display.textContent = settings.tank_color;
+    playerTank.src = `images/tank_${settings.tank_color}.png`;
+}
+
+change_color.addEventListener('click', changeColor);
 
 function appendCanvas(){
     container.remove();
@@ -46,7 +61,7 @@ let square = {
 };
 
 const playerTank = new Image();
-playerTank.src = 'images/tank.png';
+playerTank.src = 'images/tank_green.png';
 
 let enemyTank = new Image();
 enemyTank.src = 'images/enemyTank.png';
@@ -156,12 +171,11 @@ function drawAim() {
     ctx.beginPath();
     ctx.moveTo(square.x + 25, square.y + 25);
     ctx.lineTo(aimX, aimY);
-    ctx.strokeStyle = '#008c1c';
+    ctx.strokeStyle = settings.tank_color;
     ctx.lineWidth = 10;
     ctx.stroke();
  
 }   
-
 let fullscreenNow = false;
 let animationId;
 let canvasExist = false;
