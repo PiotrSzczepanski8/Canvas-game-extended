@@ -133,7 +133,7 @@ function drawBullet() {
     if (bullet.isFlying == true) {
 
       if(distance > 72.5){
-        ctx.fillStyle = 'red';
+        ctx.fillStyle = settings.tank_color;
         ctx.beginPath();
         ctx.arc(bullet.x, bullet.y, 5, 0, Math.PI * 2);
         ctx.fill();

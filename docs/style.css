@@ -3,12 +3,13 @@ body{
     user-select: none;
     display: flex;
     justify-content: center;
+    height: 28em;
 }
 body *{
     cursor: crosshair;
 }
 canvas{
-    background-color: #706340;
+    background-color: #4b422b;
     margin: auto;
 }
 #button{
