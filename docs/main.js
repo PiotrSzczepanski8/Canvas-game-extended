@@ -373,4 +373,6 @@ function enemyMissCheck(){
     }
 }
 
+console.log('test');
+
 update();
