@@ -1,1 +1,1 @@
-# Canvas game - tanks annihilation
+# Tanks Annihilation - canvas game
